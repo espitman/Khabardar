@@ -1,0 +1,1 @@
+Cufon.replace('.cufon', {onBeforeReplace:Bifon.convert});

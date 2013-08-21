@@ -26,6 +26,7 @@ body {
 	height: 100px;
 	background: #F4F4F4;
 	border-bottom: solid 1px #E6E6E6;
+	list-style: none;
 }
 .menu li .icon {
 	width: 64px;
