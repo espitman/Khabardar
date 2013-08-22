@@ -66,11 +66,11 @@ body {
 	border-radius: 50%;
 	text-align: center;	
 }
-.menu li .arrow span {
-	color: #E6E6E6;
-	font-size: 22px;
-	line-height: 32px;
+.menu li .arrow div {
+	width: 11px;
+	height: 16px;
+	background: url("../img/arrows.png");
 	position: relative;
-	top: -2px;
-	left: -1px;
+	left: 9px;
+	top: 8px;
 }
