@@ -37,11 +37,7 @@ function getCategoryNews(cat) {
 
 			var i = 0;
 			for (var x in response.items) {
-				if (i < 4) {
-					data.slides[i] = response.items[x];
-				} else {
-					data.news[i - 4] = response.items[x];
-				}
+				data.news[i] = response.items[x];
 				i++;
 			}
 

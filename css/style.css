@@ -1,10 +1,12 @@
 /*font-family: 'B_Yekan', tahoma, Arial;*/
 /*font-family: '0_Koodak', tahoma, Arial;*/
+html {
+	overflow-y: scroll;
+}
 
 body {
 	margin: 0;
 	padding: 0;
-	overflow: scroll;
 }
 #container {
 	width: 100%;
@@ -87,6 +89,31 @@ body {
 #catPage {
 	direction: rtl;
 }
-#catPage #catSlider {
-	
+#catPage ul {
+	margin: 0;
+	padding: 0;
+}
+#catPage ul li {
+	float: right;
+	width: 100%;
+	list-style: none;
+	margin: 0;
+	padding: 10px 0;
+	margin: 0 10px;
+	background: #F4F4F4;
+	border-bottom: solid 1px #E6E6E6;
+}
+#catPage ul li:hover,
+#catPage ul li:active {
+	background: #FFFFFF;
+}
+#catPage ul li p {
+	font-family: Tahoma;
+	font-size: 13px;
+	text-align: justify;
+	line-height: 1.5;
+	direction: rtl;
+	margin-left: 10px;
+	width: 93%;
+	display: inline-block;
 }
