@@ -26,9 +26,7 @@ $(document).ready(function() {
 
 
 	$("li").live("click", function() {
-		alert("A");
 		var cat = $(this).attr("data-cat");
-		alert(cat);
 		window.location.hash = "category?cat="+cat;
 	});
 	
