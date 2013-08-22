@@ -27,6 +27,11 @@ body {
 	background: #F4F4F4;
 	border-bottom: solid 1px #E6E6E6;
 	list-style: none;
+	direction: rtl;
+}
+.menu li:hover,
+.menu li:active {
+	background: #FFFFFF;
 }
 .menu li .icon {
 	width: 64px;
@@ -70,7 +75,7 @@ body {
 	width: 11px;
 	height: 16px;
 	background: url("../img/arrows.png");
-	position: relative;
+	position: absolute;
 	left: 9px;
 	top: 8px;
 }
