@@ -13,7 +13,8 @@ function readTpl(name,callback) {
 		success : function(data) {
 			tpl = data;
 			if(callback) {
-				callback();
+				eval(callback);
+				
 			}
 		},
 		error : function(data) {

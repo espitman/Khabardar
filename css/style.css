@@ -4,6 +4,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	overflow: scroll;
 }
 #container {
 	width: 100%;
@@ -78,4 +79,14 @@ body {
 	position: absolute;
 	left: 9px;
 	top: 8px;
+}
+
+.page {
+	display: none;
+}
+#catPage {
+	direction: rtl;
+}
+#catPage #catSlider {
+	
 }
