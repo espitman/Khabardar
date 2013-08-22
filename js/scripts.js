@@ -19,7 +19,8 @@ $(document).ready(function() {
 		if (func == "home" || func == "") {
 			renderTemplate("home", '', "home",'showPage("home")');
 		} else if(func == "category") {
-			getCategoryNews(parameters['cat']);
+			console.log(parameters['tid']);
+			getCategoryNews(parameters['cat'],parameters['tid']);
 		}
 		Cufon.refresh();
 	});
@@ -27,7 +28,8 @@ $(document).ready(function() {
 
 	$(".menu li").live("click", function() {
 		var cat = $(this).attr("data-cat");
-		window.location.hash = "category?cat="+cat;
+		var tid = $(this).attr("data-tid");
+		window.location.hash = "category?cat="+cat+"&tid="+tid;
 	});
 	
 	

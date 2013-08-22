@@ -6,36 +6,20 @@ function renderTemplate(name, data, elmId, callback) {
 }
 
 function hidePage() {
-	$(".page").animate({"left":"-100%"},400);
-	/*
-	$(".page.active").hide("slide", {
-		direction : "left"
-	}, 1000);
-	var t = setTimeout(function() {
-		$(".page.active").removeClass("active");
-	}, 1000);
-	*/
+	$(".page").animate({"left":"-100%"},600,'easeOutBack');
 }
 
 function showPage(page) {
 	hidePage();
-	$(".page#" + page).animate({"left":"0"},400);
-	/*
-	var t = setTimeout(function() {
-		$(".page#" + page).show("slide", {
-			direction : "left",
-			easing : 'easeOutBack'
-		}, 1000).addClass("active");
-	}, 1000);
-	*/
+	$(".page#" + page).animate({"left":"0"},600,'easeOutBack');
 }
 
-function getCategoryNews(cat) {
+function getCategoryNews(cat,tid) {
 	console.log("getCategoryNews");
 	$.ajax({
 		type : "POST",
 		dataType : "jsonp",
-		url : "http://api.khabarfarsi.net/api/news/latest/1?tid=*&output=json",
+		url : "http://api.khabarfarsi.net/api/news/latest/1?tid="+tid+"&output=json",
 		async : true,
 		success : function(response) {
 			var data = {};
@@ -49,9 +33,10 @@ function getCategoryNews(cat) {
 			}
 			//console.log(data);
 			renderTemplate("category", data, "category");
-			showPage("category");
-			Cufon.refresh();		
-
+			setTimeout(function(){
+				showPage("category");
+				Cufon.refresh();						
+			},600);
 		}
 	});
 }
