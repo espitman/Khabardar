@@ -1,10 +1,14 @@
 @font-face {
 	font-family: 'typicons';
 	src: url("typicons.eot");
-	src: url("typicons.eot?#iefix") format('embedded-opentype'), url("typicons.woff") format('woff'), url("typicons.ttf") format('truetype'), url("typicons.svg#typicons") format('svg');
+	src: url("typicons.eot?#iefix") format('embedded-opentype'), 
+	url("typicons.woff") format('woff'), 
+	url("typicons.ttf") format('truetype'), 
+	url("typicons.svg#typicons") format('svg');
 	font-weight: normal;
 	font-style: normal
 }
+
 .typcn {
 	line-height: 1;
 	width: 1em;
