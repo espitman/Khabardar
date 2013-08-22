@@ -6,7 +6,7 @@ function renderTemplate(name, data, elmId, callback) {
 }
 
 function hidePage() {
-	$(".page").animate({"left":"-100%"},1000);
+	$(".page").animate({"left":"-100%"},400);
 	/*
 	$(".page.active").hide("slide", {
 		direction : "left"
@@ -19,7 +19,7 @@ function hidePage() {
 
 function showPage(page) {
 	hidePage();
-	$(".page#" + page).animate({"left":"0"},1000);
+	$(".page#" + page).animate({"left":"0"},400);
 	/*
 	var t = setTimeout(function() {
 		$(".page#" + page).show("slide", {
@@ -49,10 +49,8 @@ function getCategoryNews(cat) {
 			}
 			//console.log(data);
 			renderTemplate("category", data, "category");
-			setTimeout(function(){
-				showPage("category");
-				Cufon.refresh();		
-			},1000);
+			showPage("category");
+			Cufon.refresh();		
 
 		}
 	});
