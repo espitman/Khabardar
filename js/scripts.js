@@ -25,14 +25,11 @@ $(document).ready(function() {
 	});
 
 
-	$("li").live("click", function() {
+	$(".menu li").live("click", function() {
 		var cat = $(this).attr("data-cat");
 		window.location.hash = "category?cat="+cat;
 	});
 	
 	
-	$("img.lazy").lazyload({
-		effect      : "fadeIn",
-	});	
 
 });

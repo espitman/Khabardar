@@ -84,7 +84,10 @@ body {
 }
 
 .page {
-	display: none;
+	width: 100%;
+	position: absolute;
+	left: -100%;
+	display: inline-table;
 }
 #catPage {
 	direction: rtl;

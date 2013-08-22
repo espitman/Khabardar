@@ -6,25 +6,32 @@ function renderTemplate(name, data, elmId, callback) {
 }
 
 function hidePage() {
+	$(".page").animate({"left":"-100%"},1000);
+	/*
 	$(".page.active").hide("slide", {
 		direction : "left"
-	}, 400);
+	}, 1000);
 	var t = setTimeout(function() {
 		$(".page.active").removeClass("active");
-	}, 400);
+	}, 1000);
+	*/
 }
 
 function showPage(page) {
 	hidePage();
+	$(".page#" + page).animate({"left":"0"},1000);
+	/*
 	var t = setTimeout(function() {
 		$(".page#" + page).show("slide", {
 			direction : "left",
 			easing : 'easeOutBack'
-		}, 400).addClass("active");
-	}, 400);
+		}, 1000).addClass("active");
+	}, 1000);
+	*/
 }
 
 function getCategoryNews(cat) {
+	console.log("getCategoryNews");
 	$.ajax({
 		type : "POST",
 		dataType : "jsonp",
@@ -40,10 +47,13 @@ function getCategoryNews(cat) {
 				data.news[i] = response.items[x];
 				i++;
 			}
+			//console.log(data);
+			renderTemplate("category", data, "category");
+			setTimeout(function(){
+				showPage("category");
+				Cufon.refresh();		
+			},1000);
 
-			console.log(data);
-			renderTemplate("category", data, "category", 'showPage("category")');
-			Cufon.refresh();
 		}
 	});
 }

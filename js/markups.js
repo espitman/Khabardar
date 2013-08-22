@@ -4,6 +4,7 @@ function getMarkup(name,callback) {
 }
 
 function readTpl(name,callback) {
+	console.log("readTpl");
 	var tpl;
 	$.ajax({
 		type : "POST",
@@ -14,7 +15,6 @@ function readTpl(name,callback) {
 			tpl = data;
 			if(callback) {
 				eval(callback);
-				
 			}
 		},
 		error : function(data) {
