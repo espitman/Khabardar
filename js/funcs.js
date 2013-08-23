@@ -43,14 +43,13 @@ function getCategoryNews(cat,tid) {
 }
 
 function startLoading() {
-	//var h = $(window).height();
+	var h = $(window).height();
 	$("html").css({"overflow-y":"hidden"});
-	//$("#loading-blocker").css("height", h + "px").show();
+	$("#loading-blocker").css("height", h + "px").show();
 	$("#loading").show();
 }
 
 function stoptLoading() {
-	return;
 	var t= setTimeout(function(){
 		$("html, body").animate({
 			scrollTop : 0
