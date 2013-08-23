@@ -17,8 +17,10 @@ $(document).ready(function() {
 		}		
 		
 		if (func == "home" || func == "") {
+			startLoading();
 			renderTemplate("home", '', "home",'showPage("home")');
 		} else if(func == "category") {
+			startLoading();
 			getCategoryNews(parameters['cat'],parameters['tid']);
 		}
 		Cufon.refresh();

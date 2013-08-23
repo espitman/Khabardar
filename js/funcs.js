@@ -12,6 +12,9 @@ function hidePage() {
 function showPage(page) {
 	hidePage();
 	$(".page#" + page).animate({"left":"0"},600,'easeOutBack');
+	setTimeout(function(){
+		stoptLoading();
+	},600);
 }
 
 function getCategoryNews(cat,tid) {
@@ -37,4 +40,22 @@ function getCategoryNews(cat,tid) {
 			},600);
 		}
 	});
+}
+
+function startLoading() {
+	var h = $(document).height();
+	$("html").css({"overflow-y":"hidden"});
+	$("#loading-blocker").css("height", h + "px").show();
+	$("#loading").show();
+}
+
+function stoptLoading() {
+	var t= setTimeout(function(){
+		$("html, body").animate({
+			scrollTop : 0
+		}, 500);
+		$("#loading-blocker").hide();
+		$("#loading").hide();
+		$("html").css({"overflow-y":"auto"});
+	},600);
 }
