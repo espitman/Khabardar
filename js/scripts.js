@@ -31,6 +31,8 @@ $(document).ready(function() {
 		window.location.hash = "category?cat="+cat+"&tid="+tid;
 	});
 	
-	
+	$("#goHome").live("click", function() {
+		window.location.hash = "";
+	});
 
 });
