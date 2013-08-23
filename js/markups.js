@@ -1,19 +1,26 @@
-function getMarkup(name,callback) {
-	var tpl = readTpl(name,callback);
+function getMarkup(name, callback) {
+	var tpl = readTpl(name, callback);
 	return tpl;
 }
 
-function readTpl(name,callback) {
-	console.log("readTpl");
-	var tpl;
+function readTpl(name, callback) {
+	var tpl = localStorage.getItem('tpl_' + name);
+	if (tpl) {
+		if (callback) {
+			eval(callback);
+		}
+		return tpl;
+	}
+
 	$.ajax({
 		type : "POST",
-		url : "tmpl/"+ name + ".tpl",
+		url : "tmpl/" + name + ".tpl",
 		dataType : "text",
 		async : false,
 		success : function(data) {
 			tpl = data;
-			if(callback) {
+			localStorage.setItem('tpl_' + name, tpl);
+			if (callback) {
 				eval(callback);
 			}
 		},

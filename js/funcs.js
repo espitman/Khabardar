@@ -15,7 +15,6 @@ function showPage(page) {
 }
 
 function getCategoryNews(cat,tid) {
-	console.log("getCategoryNews");
 	$.ajax({
 		type : "POST",
 		dataType : "jsonp",
@@ -31,7 +30,6 @@ function getCategoryNews(cat,tid) {
 				data.news[i] = response.items[x];
 				i++;
 			}
-			//console.log(data);
 			renderTemplate("category", data, "category");
 			setTimeout(function(){
 				showPage("category");

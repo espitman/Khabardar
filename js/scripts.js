@@ -19,7 +19,6 @@ $(document).ready(function() {
 		if (func == "home" || func == "") {
 			renderTemplate("home", '', "home",'showPage("home")');
 		} else if(func == "category") {
-			console.log(parameters['tid']);
 			getCategoryNews(parameters['cat'],parameters['tid']);
 		}
 		Cufon.refresh();
