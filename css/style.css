@@ -13,26 +13,26 @@ body {
 	width: 100%;
 	height: 100%;
 }
-#container #header {
+#header {
 	width: 100%;
 	height: 70px;
 	background: #21323C;
 }
-#container #header h1 {
+#header h1 {
 	margin: 0;
 	color: #D8D8D8;
 	text-align: center;
 	line-height: 50px;
+	font-size: 32px;
 }
-
-#container #header #goHome {
+#header #goHome {
 	width: 38px;
 	height: 38px;
 	background: url("../img/home.png");
 	background-size: 100%;
 	position: absolute;
 	margin-left: -54px;
-	margin-top: 16px;
+	margin-top: -32px;
 	left: 100%;
 	cursor: pointer;
 	opacity: 0.6;
@@ -60,6 +60,12 @@ body {
 .menu li:hover,
 .menu li:active {
 	background: #FFFFFF;
+}
+.menu li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: #333333;
 }
 .menu li .icon {
 	width: 64px;
@@ -170,4 +176,6 @@ body {
 	z-index: 10001;
 	background-size: 100%;
 }
-
+.ui-content {
+	padding: 0;
+}

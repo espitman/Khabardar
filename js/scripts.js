@@ -3,38 +3,48 @@ Cufon.replace('.cufon_yekan', {
 	onBeforeReplace : Bifon.convert
 });
 
-$(document).ready(function() {
+$(document).on('pageinit', function() {
+	renderTemplate("home", '', "home_content");
+});
 
-	$.history.init(function(hash) {
-		hash = explode("?", hash);
-		var func = hash[0];
-		var params = hash[1];
-		var parameters = {};
-		params = explode("&", params);
-		for (var x in params) {
-			var tmp = explode("=", params[x]);
-			parameters[tmp[0]] = tmp[1];
-		}		
-		
-		if (func == "home" || func == "") {
-			startLoading();
-			renderTemplate("home", '', "home",'showPage("home")');
-		} else if(func == "category") {
-			startLoading();
-			getCategoryNews(parameters['cat'],parameters['tid']);
-		}
-		Cufon.refresh();
-	});
-
-
-	$(".menu li").live("click", function() {
-		var cat = $(this).attr("data-cat");
-		var tid = $(this).attr("data-tid");
-		window.location.hash = "category?cat="+cat+"&tid="+tid;
-	});
+$('a').live('click', function(e) {
+	e.preventDefault();
 	
-	$("#goHome").live("click", function() {
-		window.location.hash = "";
-	});
+	$.mobile.loading('show');
+	
+	var href = $(this).attr("href");
+	var params = getLinkParams(href);
+	if (params["page"] == "category") {
+		cat = params["cat"];
+		tid = params["tid"];
+		
+		$.ajax({
+			type : "POST",
+			dataType : "jsonp",
+			url : "http://api.khabarfarsi.net/api/news/latest/1?tid=" + tid + "&output=json",
+			async : true,
+			success : function(response) {
+				var data = {};
+				data.slides = {};
+				data.news = {};
 
+				var i = 0;
+				for (var x in response.items) {
+					data.news[i] = response.items[x];
+					i++;
+				}
+				renderTemplate("category", data, "category_content",'$.mobile.changePage("#category",{ transition: "slide"});');
+				setTimeout(function() {
+					Cufon.refresh();
+				}, 100);
+			}
+		});
+
+	}
+});
+
+$('#goHome').live('click', function(e) {
+	$.mobile.loading( 'show');
+	$.mobile.changePage("",{ transition: "slide"});
+	Cufon.refresh();
 });

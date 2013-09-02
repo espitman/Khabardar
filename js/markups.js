@@ -4,7 +4,8 @@ function getMarkup(name, callback) {
 }
 
 function readTpl(name, callback) {
-	var tpl = localStorage.getItem('tpl_' + name);
+	var v = 1;
+	var tpl = localStorage.getItem('tpl_'+ v + name);
 	if (tpl) {
 		if (callback) {
 			eval(callback);

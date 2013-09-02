@@ -8,7 +8,7 @@
 			<div style="width:80px;height:60px;background:#CCC;float:right;margin-left:10px;"></div>
 			{{/if}}			
 			<span style="direction:rtl;" class="cufon cufon_yekan">${title}</span>
-			<p>${teaser}</p>
+			<p>{{html teaser}}</p>
 		</li>
 	{{/each}}
 	</ul>

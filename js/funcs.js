@@ -5,17 +5,6 @@ function renderTemplate(name, data, elmId, callback) {
 	$.tmpl("main", data).appendTo("#" + elmId);
 }
 
-function hidePage() {
-	$(".page").animate({"left":"-100%"},600,'easeOutBack');
-}
-
-function showPage(page) {
-	hidePage();
-	$(".page#" + page).animate({"left":"0"},600,'easeOutBack');
-	setTimeout(function(){
-		stoptLoading();
-	},600);
-}
 
 function getCategoryNews(cat,tid) {
 	$.ajax({
@@ -33,32 +22,24 @@ function getCategoryNews(cat,tid) {
 				data.news[i] = response.items[x];
 				i++;
 			}
-			renderTemplate("category", data, "category");
+			renderTemplate("category", data, "category_content");
 			setTimeout(function(){
-				showPage("category");
 				Cufon.refresh();						
 			},600);
 		}
 	});
 }
 
-function startLoading() {
-	$("html, body").animate({
-			scrollTop : 0
-	}, 0);
-	var h = $(window).height();
-	//$("html").css({"overflow-y":"hidden"});
-	$("#loading-blocker").css("height", h + "px").show();
-	$("#loading").show();
-}
-
-function stoptLoading() {
-	var t= setTimeout(function(){
-		$("html, body").animate({
-			scrollTop : 0
-		}, 500);
-		$("#loading-blocker").hide();
-		$("#loading").hide();
-		$("html").css({"overflow-y":"auto"});
-	},600);
+function getLinkParams(link) {
+	var ret = {};
+	link = str_replace("#","",link);
+	link = explode("?",link);
+	ret["page"] = link[0];
+	link = link[1];
+	link = explode("&",link);
+	for(var x in link) {
+		tmp = explode("=",link[x]);
+		ret[tmp[0]] = tmp[1];
+	}
+	return ret;
 }
