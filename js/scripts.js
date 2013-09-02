@@ -3,21 +3,27 @@ Cufon.replace('.cufon_yekan', {
 	onBeforeReplace : Bifon.convert
 });
 
+$(document).bind("mobileinit", function() {
+	$.mobile.pushStateEnabled = false;
+});
+
 $(document).on('pageinit', function() {
 	renderTemplate("home", '', "home_content");
 });
 
+
+
 $('a').live('click', function(e) {
 	e.preventDefault();
-	
+
 	$.mobile.loading('show');
-	
+
 	var href = $(this).attr("href");
 	var params = getLinkParams(href);
 	if (params["page"] == "category") {
 		cat = params["cat"];
 		tid = params["tid"];
-		
+
 		$.ajax({
 			type : "POST",
 			dataType : "jsonp",
@@ -33,7 +39,7 @@ $('a').live('click', function(e) {
 					data.news[i] = response.items[x];
 					i++;
 				}
-				renderTemplate("category", data, "category_content",'$.mobile.changePage("#category",{ transition: "slide"});');
+				renderTemplate("category", data, "category_content", '$.mobile.changePage("#category",{ transition: "slide"});');
 				setTimeout(function() {
 					Cufon.refresh();
 				}, 100);
@@ -44,7 +50,9 @@ $('a').live('click', function(e) {
 });
 
 $('#goHome').live('click', function(e) {
-	$.mobile.loading( 'show');
-	$.mobile.changePage("",{ transition: "slide"});
+	$.mobile.loading('show');
+	$.mobile.changePage("", {
+		transition : "slide"
+	});
 	Cufon.refresh();
-});
+}); 
