@@ -3,9 +3,6 @@ Cufon.replace('.cufon_yekan', {
 	onBeforeReplace : Bifon.convert
 });
 
-$(document).bind("mobileinit", function() {
-	$.mobile.pushStateEnabled = false;
-});
 
 $(document).on('pageinit', function() {
 	renderTemplate("home", '', "home_content");
@@ -14,6 +11,7 @@ $(document).on('pageinit', function() {
 
 
 $('a').live('click', function(e) {
+	e.stopPropagation();
 	e.preventDefault();
 
 	$.mobile.loading('show');
