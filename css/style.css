@@ -1,5 +1,17 @@
 /*font-family: 'B_Yekan', tahoma, Arial;*/
 /*font-family: '0_Koodak', tahoma, Arial;*/
+
+@font-face {
+    font-family: "mitra";
+    src: url('file:///android_asset/fonts/mitra.ttf');
+}
+
+@font-face {
+    font-family: "yekan";
+    src: url('file:///android_asset/fonts/yekan.ttf');
+}
+
+
 html {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -89,7 +101,7 @@ body {
 	display: inline-block;
 	float: right;
 	line-height: 100px;
-	font-family: 'B_Yekan', tahoma, Arial;
+	font-family: 'yekan';
 	font-size: 30px;
 }
 .menu li .arrow {

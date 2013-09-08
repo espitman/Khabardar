@@ -23,9 +23,6 @@ function getCategoryNews(cat,tid) {
 				i++;
 			}
 			renderTemplate("category", data, "category_content");
-			setTimeout(function(){
-				Cufon.refresh();						
-			},600);
 		}
 	});
 }

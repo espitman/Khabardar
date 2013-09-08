@@ -1,9 +1,3 @@
-Cufon.replace('.cufon_yekan', {
-	fontFamily : 'Yekan',
-	onBeforeReplace : Bifon.convert
-});
-
-
 $(document).on('pageinit', function() {
 	renderTemplate("home", '', "home_content");
 });
@@ -38,9 +32,6 @@ $('a').live('click', function(e) {
 					i++;
 				}
 				renderTemplate("category", data, "category_content", '$.mobile.changePage("#category",{ transition: "slide"});');
-				setTimeout(function() {
-					Cufon.refresh();
-				}, 100);
 			}
 		});
 
@@ -52,5 +43,4 @@ $('#goHome').live('click', function(e) {
 	$.mobile.changePage("", {
 		transition : "slide"
 	});
-	Cufon.refresh();
 }); 
