@@ -2,8 +2,13 @@
 /*font-family: '0_Koodak', tahoma, Arial;*/
 
 @font-face {
+    font-family: "mitra";
+    src: url('file:///android_asset/www/fonts/mitra.ttf');
+}
+
+@font-face {
     font-family: "yekan";
-    src: url('../fonts/yekan.ttf');
+    src: url('file:///android_asset/www/fonts/yekan.ttf');
 }
 
 
