@@ -101,7 +101,7 @@ body {
 	display: inline-block;
 	float: right;
 	line-height: 100px;
-	font-family: 'yekan';
+	font-family: "yekan","b yekan";
 	font-size: 30px;
 }
 .menu li .arrow {
