@@ -191,3 +191,43 @@ body {
 .ui-content {
 	padding: 0;
 }
+
+#aPost {
+	float: right;
+	direction: rtl;
+	margin: 0 10px;
+}
+#aPost h1 {
+	font-family: 'B_Yekan', tahoma, Arial;
+	font-size: 22px;
+	font-weight: normal;
+	text-align: right;
+}
+#aPost #nImage {
+	float: right;
+	width: 25%;
+}
+#aPost #lead {
+	font-family: Tahoma;
+	font-size: 12px;
+	line-height: 2;
+	font-weight: normal;
+	direction: rtl;
+	float: right;
+	font-style: italic;
+	text-align: justify;
+	width: 73%;
+	margin-left: 2%;
+}
+#aPost #full {
+	font-family: Tahoma;
+	font-size: 13px;
+	line-height: 2;
+	font-weight: normal;
+	direction: rtl;
+	float: right;
+	text-align: justify;
+	width: 73%;
+	margin-left: 2%;
+}
+

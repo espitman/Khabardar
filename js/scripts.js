@@ -9,17 +9,17 @@ $('a').live('click', function(e) {
 	e.preventDefault();
 
 	$.mobile.loading('show');
-
 	var href = $(this).attr("href");
 	var params = getLinkParams(href);
 	if (params["page"] == "category") {
-		cat = params["cat"];
-		tid = params["tid"];
-
+		cid = params["tid"];
 		$.ajax({
 			type : "POST",
-			dataType : "jsonp",
-			url : "http://api.khabarfarsi.net/api/news/latest/1?tid=" + tid + "&output=json",
+			data : {
+				cid : cid
+			},
+			dataType : "json",
+			url : "http://eboard.ir/khabardar/khabardar/reader.php",
 			async : true,
 			success : function(response) {
 				var data = {};
@@ -34,7 +34,9 @@ $('a').live('click', function(e) {
 				renderTemplate("category", data, "category_content", '$.mobile.changePage("#category",{ transition: "slide"});');
 			}
 		});
-
+	} else if (params["page"] == "news") {
+		var id = params["id"];
+		showNews(id);
 	}
 });
 
