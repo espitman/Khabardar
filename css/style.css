@@ -1,4 +1,4 @@
-/*font-family: 'BYekan', tahoma, Arial;*/
+/*font-family: 'yekan', tahoma, Arial;*/
 /*font-family: '0_Koodak', tahoma, Arial;*/
 
 html {
@@ -25,7 +25,7 @@ body {
 	text-align: center;
 	line-height: 50px;
 	font-size: 32px;
-	font-family: "BYekan";
+	font-family: "yekan";
 }
 #header #goHome {
 	width: 38px;
@@ -91,7 +91,7 @@ body {
 	display: inline-block;
 	float: right;
 	line-height: 100px;
-	font-family: "BYekan";
+	font-family: "yekan";
 	font-size: 30px;
 }
 .menu li .arrow {
@@ -193,7 +193,7 @@ body {
 	margin: 0 10px;
 }
 #aPost h1 {
-	font-family: 'BYekan', tahoma, Arial;
+	font-family: 'yekan', tahoma, Arial;
 	font-size: 22px;
 	font-weight: normal;
 	text-align: right;
