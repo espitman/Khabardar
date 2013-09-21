@@ -1,5 +1,10 @@
 $(document).on('pageinit', function() {
+	
+	iNav = new navigation;
+	
 	renderTemplate("home", '', "home_content");
+
+	
 });
 
 
@@ -7,33 +12,14 @@ $(document).on('pageinit', function() {
 $('a').live('click', function(e) {
 	e.stopPropagation();
 	e.preventDefault();
+	//alert(window.location);
 
 	$.mobile.loading('show');
 	var href = $(this).attr("href");
 	var params = getLinkParams(href);
 	if (params["page"] == "category") {
 		cid = params["tid"];
-		$.ajax({
-			type : "POST",
-			data : {
-				cid : cid
-			},
-			dataType : "json",
-			url : "http://eboard.ir/khabardar/khabardar/reader.php",
-			async : true,
-			success : function(response) {
-				var data = {};
-				data.slides = {};
-				data.news = {};
-
-				var i = 0;
-				for (var x in response.items) {
-					data.news[i] = response.items[x];
-					i++;
-				}
-				renderTemplate("category", data, "category_content", '$.mobile.changePage("#category",{ transition: "slide"});');
-			}
-		});
+		showCategory(cid);
 	} else if (params["page"] == "news") {
 		var id = params["id"];
 		showNews(id);
@@ -42,7 +28,14 @@ $('a').live('click', function(e) {
 
 $('#goHome').live('click', function(e) {
 	$.mobile.loading('show');
-	$.mobile.changePage("", {
-		transition : "slide"
-	});
+	var back = iNav.pop();
+	if(back.func == "home") {
+		$.mobile.changePage("", {
+			transition : "slide"
+		});
+	} else if(back.func == "category") {
+		showCategory(back.params);
+	} else if(back.func == "news") {
+		showNews(back.params);
+	}
 }); 

@@ -19,6 +19,32 @@ function getLinkParams(link) {
 	return ret;
 }
 
+function showCategory(cid) {
+	$.ajax({
+		type : "POST",
+		data : {
+			cid : cid
+		},
+		dataType : "json",
+		url : "http://eboard.ir/khabardar/khabardar/reader.php",
+		async : true,
+		success : function(response) {
+			var data = {};
+			data.slides = {};
+			data.news = {};
+
+			var i = 0;
+			for (var x in response.items) {
+				data.news[i] = response.items[x];
+				i++;
+			}
+			renderTemplate("category", data, "category_content", '$.mobile.changePage("#category",{ transition: "slide"});');
+			$.mobile.loading('hide');
+			iNav.push("home");
+		}
+	});
+}
+
 function showNews(id) {
 	$.ajax({
 		type : "POST",
@@ -30,8 +56,9 @@ function showNews(id) {
 		async : true,
 		success : function(response) {
 			var i = 0;
-			renderTemplate("news", response.item, "category_content", '$.mobile.changePage("#category",{ transition: "slide"});');
+			renderTemplate("news", response.item, "news_content", '$.mobile.changePage("#news",{ transition: "slide"});');
 			$.mobile.loading('hide');
+			iNav.push('category',response.item.cid);
 		}
 	});
 }
