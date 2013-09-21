@@ -204,8 +204,6 @@ body {
 	text-align: right;
 }
 #aPost #nImage {
-	float: right;
-	width: 25%;
 }
 #aPost #lead {
 	font-family: Tahoma;
@@ -216,8 +214,6 @@ body {
 	float: right;
 	font-style: italic;
 	text-align: justify;
-	width: 73%;
-	margin-left: 2%;
 }
 #aPost #full {
 	font-family: Tahoma;
@@ -227,7 +223,5 @@ body {
 	direction: rtl;
 	float: right;
 	text-align: justify;
-	width: 73%;
-	margin-left: 2%;
 }
 
