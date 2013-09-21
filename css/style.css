@@ -1,14 +1,18 @@
 /*font-family: 'B_Yekan', tahoma, Arial;*/
 /*font-family: '0_Koodak', tahoma, Arial;*/
 
-@font-face {
-    font-family: "mitra";
-    src: url('file:///android_asset/www/fonts/mitra.ttf');
-}
 
 @font-face {
-    font-family: "yekan";
-    src: url('file:///android_asset/www/fonts/yekan.ttf');
+     font-family: 'B_Yekan';
+     src: url('fonts/BYekan/BYekan.eot');
+     src: url('fonts/BYekan/BYekan.otf') format('opentype');
+     src: local('☺'),
+     local('B Yekan'),
+     url('fonts/BYekan/BYekan.woff') format('woff'),
+     url('fonts/BYekan/BYekan.ttf') format('truetype'),
+     url('fonts/BYekan/BYekan.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 
@@ -36,6 +40,7 @@ body {
 	text-align: center;
 	line-height: 50px;
 	font-size: 32px;
+	font-family: "B_Yekan";
 }
 #header #goHome {
 	width: 38px;
@@ -101,7 +106,7 @@ body {
 	display: inline-block;
 	float: right;
 	line-height: 100px;
-	font-family: "yekan","b yekan";
+	font-family: "B_Yekan";
 	font-size: 30px;
 }
 .menu li .arrow {
