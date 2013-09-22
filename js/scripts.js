@@ -4,6 +4,7 @@ $(document).on('pageinit', function() {
 	renderTemplate("home", '', "home_content");
 	startAutoUpdate = 0;
 
+	autoUpdate();
 
 });
 

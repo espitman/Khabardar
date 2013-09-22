@@ -48,9 +48,6 @@ function showCategory(cid) {
 			renderTemplate("category_news", data, "catPage-ul");
 			$.mobile.loading('hide');
 			iNav.push("home");
-			
-			autoUpdate();
-			
 		}
 	});
 }
@@ -105,12 +102,12 @@ function showNews(id) {
 
 function autoUpdate() {
 	
-	//scrollstop
-	
 	//$(window).scroll(function() {
 	$(window).bind('scrollstop', function () {
 		
 		//alert($(window).scrollTop()+','+$(document).height()+','+$(window).height());
+		
+		alert($("#category_content").height());
 		
 		if ($(window).scrollTop() > 10) {
 			if ($(document).height() > $(window).height()) {
