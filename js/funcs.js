@@ -5,6 +5,12 @@ function renderTemplate(name, data, elmId, callback) {
 	$.tmpl("main", data).appendTo("#" + elmId);
 }
 
+function renderTemplateAppend(name, data, elmId, callback) {
+	var markup = getMarkup(name, callback);
+	$.template("main", markup);
+	$.tmpl("main", data).appendTo("#" + elmId);
+}
+
 function getLinkParams(link) {
 	var ret = {};
 	link = str_replace("#", "", link);
@@ -39,8 +45,39 @@ function showCategory(cid) {
 				i++;
 			}
 			renderTemplate("category", data, "category_content", '$.mobile.changePage("#category",{ transition: "slide"});');
+			renderTemplate("category_news", data, "catPage-ul");
 			$.mobile.loading('hide');
 			iNav.push("home");
+		}
+	});
+}
+
+function updateCategory(cid, lastId) {
+	$.mobile.loading('show');
+	$.ajax({
+		type : "POST",
+		data : {
+			cid : cid,
+			lastId : lastId
+		},
+		dataType : "json",
+		url : "http://eboard.ir/khabardar/khabardar/reader.php",
+		async : true,
+		success : function(response) {
+			var data = {};
+			data.slides = {};
+			data.news = {};
+
+			var i = 0;
+			for (var x in response.items) {
+				data.news[i] = response.items[x];
+				i++;
+			}
+			renderTemplateAppend("category_news", data, "catPage-ul");
+			$.mobile.loading('hide');
+			iNav.push("home");
+			startAutoUpdate = 0;
+			$.mobile.loading('hide');
 		}
 	});
 }
@@ -58,7 +95,28 @@ function showNews(id) {
 			var i = 0;
 			renderTemplate("news", response.item, "news_content", '$.mobile.changePage("#news",{ transition: "slide"});');
 			$.mobile.loading('hide');
-			iNav.push('category',response.item.cid);
+			iNav.push('category', response.item.cid);
 		}
 	});
+}
+
+function autoUpdate() {
+	$(window).scroll(function() {
+		if ($(window).scrollTop() > 10) {
+			if ($(document).height() > $(window).height()) {
+				if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+					if (startAutoUpdate == 0) {
+						startAutoUpdate = 1;
+						 var hash = document.location.hash;
+						 if(hash == "#category") {
+						 	var id = $("#catPage ul li:last").attr("data-id");
+						 	var cid = $("#catPage ul li:last").attr("data-cid");
+						 	updateCategory(cid, id);
+						 }
+					}
+				}
+			}
+		}
+	});
+
 }

@@ -172,7 +172,12 @@ body {
 	width: 93%;
 	display: inline-block;
 }
-
+#catPage #end {
+	width: 200px;
+	height: 20px;
+	background: red;
+	display: inline-block;
+}
 
 #loading-blocker {
 	width: 100%;

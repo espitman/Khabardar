@@ -1,13 +1,12 @@
 $(document).on('pageinit', function() {
-	
+
 	iNav = new navigation;
-	
 	renderTemplate("home", '', "home_content");
+	startAutoUpdate = 0;
 
-	
+	autoUpdate();
+
 });
-
-
 
 $('a').live('click', function(e) {
 	e.stopPropagation();
@@ -29,13 +28,14 @@ $('a').live('click', function(e) {
 $('#goHome').live('click', function(e) {
 	$.mobile.loading('show');
 	var back = iNav.pop();
-	if(back.func == "home") {
+	if (back.func == "home") {
 		$.mobile.changePage("", {
 			transition : "slide"
 		});
-	} else if(back.func == "category") {
+	} else if (back.func == "category") {
 		showCategory(back.params);
-	} else if(back.func == "news") {
+	} else if (back.func == "news") {
 		showNews(back.params);
 	}
-}); 
+});
+
