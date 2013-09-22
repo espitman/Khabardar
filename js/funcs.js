@@ -101,7 +101,11 @@ function showNews(id) {
 }
 
 function autoUpdate() {
-	$(window).scroll(function() {
+	
+	//scrollstop
+	
+	//$(window).scroll(function() {
+	$(window).bind('scrollstop', function () {
 		if ($(window).scrollTop() > 10) {
 			if ($(document).height() > $(window).height()) {
 				if ($(window).scrollTop() == $(document).height() - $(window).height()) {
