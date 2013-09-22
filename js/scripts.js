@@ -1,17 +1,3 @@
- document.addEventListener("deviceready", onDeviceReady, false);
-
-// PhoneGap is ready
-//
-function onDeviceReady() {
-    var element = document.getElementById('home');
-
-    element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
-                        'Device PhoneGap: ' + device.phonegap + '<br />' + 
-                        'Device Platform: ' + device.platform + '<br />' + 
-                        'Device UUID: '     + device.uuid     + '<br />' + 
-                        'Device Version: '  + device.version  + '<br />';
-}
-
 $(document).on('pageinit', function() {
 	iNav = new navigation;
 	renderTemplate("home", '', "home_content");
