@@ -53,7 +53,8 @@ function showCategory(cid) {
 }
 
 function updateCategory(cid, lastId) {
-	$.mobile.loading('show');
+	//$.mobile.loading('show');
+	$("#catPage-ul").append("<li id='in-load'>درحال دریافت اطلاعات</li>");
 	$.ajax({
 		type : "POST",
 		data : {
@@ -77,12 +78,19 @@ function updateCategory(cid, lastId) {
 			$.mobile.loading('hide');
 			iNav.push("home");
 			startAutoUpdate = 0;
-			$.mobile.loading('hide');
+			//$.mobile.loading('hide');
+			$("#in-load").remove();
+			var cst = $(window).scrollTop();
+			//$(window).scrollTop(cst+10);
+			$('html').animate({scrollTop : (cst+200)},'slow');
+			
+			
 		}
 	});
 }
 
 function showNews(id) {
+	var sct = $(window).scrollTop();
 	$.ajax({
 		type : "POST",
 		data : {
@@ -95,7 +103,7 @@ function showNews(id) {
 			var i = 0;
 			renderTemplate("news", response.item, "news_content", '$.mobile.changePage("#news",{ transition: "slide"});');
 			$.mobile.loading('hide');
-			iNav.push('category', response.item.cid);
+			iNav.push('category', sct);
 		}
 	});
 }

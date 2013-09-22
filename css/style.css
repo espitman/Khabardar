@@ -178,6 +178,14 @@ body {
 	background: red;
 	display: inline-block;
 }
+li#in-load {
+	height: 60px;
+	padding: 0 42px;
+	line-height: 60px;
+	background: url("../img/loader.gif") center right no-repeat !important;
+	background-size: 32px 32px !important;
+	margin-right: 10px;
+}
 
 #loading-blocker {
 	width: 100%;

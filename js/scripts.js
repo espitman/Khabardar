@@ -4,8 +4,8 @@ $(document).on('pageinit', function() {
 	startAutoUpdate = 0;
 });
 
-$( document ).on( "pageshow", function( event, ui ) {
-  autoUpdate();
+$(document).on("pageshow", function(event, ui) {
+	autoUpdate();
 });
 
 $('a').live('click', function(e) {
@@ -33,12 +33,20 @@ $('#goHome').live('click', function(e) {
 			transition : "slide"
 		});
 	} else if (back.func == "category") {
-		//showCategory(back.params);
+
+		$("#category").bind('pageshow', function() {
+			$(window).scrollTop(back.params);
+			$("#category").unbind("pageshow");
+		});
+
 		$.mobile.changePage("#category", {
 			transition : "slide",
-			reverse : false,
+			reverse : true,
 			changeHash : true
 		});
+		//setTimeout(function(){
+		//	$(window).scrollTop(back.params);
+		//},100);
 
 	} else if (back.func == "news") {
 		showNews(back.params);
