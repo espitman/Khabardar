@@ -33,7 +33,13 @@ $('#goHome').live('click', function(e) {
 			transition : "slide"
 		});
 	} else if (back.func == "category") {
-		showCategory(back.params);
+		//showCategory(back.params);
+		$.mobile.changePage("#category", {
+			transition : "slide",
+			reverse : false,
+			changeHash : false
+		});
+
 	} else if (back.func == "news") {
 		showNews(back.params);
 	}
