@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.hello-world"
-        version   = "0.0.219">
+        version   = "0.0.220">
 
     <name>Khabardar</name>
 
@@ -55,6 +55,7 @@
     -->
 	<plugin name="File" value="org.apache.cordova.FileUtils" />
 	<plugin name="FileTransfer" value="org.apache.cordova.FileTransfer" />
+	<gap:plugin name="com.adobe.plugins.pushplugin" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
