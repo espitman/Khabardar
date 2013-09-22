@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.hello-world"
-        version   = "0.0.220">
+        version   = "0.0.221">
 
     <name>Khabardar</name>
 
@@ -55,7 +55,8 @@
     -->
 	<plugin name="File" value="org.apache.cordova.FileUtils" />
 	<plugin name="FileTransfer" value="org.apache.cordova.FileTransfer" />
-	<gap:plugin name="com.adobe.plugins.pushplugin" />
+	<plugin name="Notification" value="CDVNotification" />
+	<plugin name="PushPlugin" value="PushPlugin" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
@@ -93,7 +94,6 @@
 
         Otherwise, you can specify specific domains:
     -->
-    <access />
     <access origin="*" />
     <!--
         <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
