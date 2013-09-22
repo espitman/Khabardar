@@ -107,11 +107,11 @@ function autoUpdate() {
 		
 		//alert($(window).scrollTop()+','+$(document).height()+','+$(window).height());
 		
-		alert($("#category_content").height());
+		var docHeight = parseInt($("#category_content").outerHeight())+parseInt($("#header").outerHeight());
 		
 		if ($(window).scrollTop() > 10) {
-			if ($(document).height() > $(window).height()) {
-				if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+			if (docHeight > $(window).height()) {
+				if ($(window).scrollTop() == docHeight - $(window).height()) {
 					if (startAutoUpdate == 0) {
 						startAutoUpdate = 1;
 						 var hash = document.location.hash;
