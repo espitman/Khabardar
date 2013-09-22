@@ -48,6 +48,9 @@ function showCategory(cid) {
 			renderTemplate("category_news", data, "catPage-ul");
 			$.mobile.loading('hide');
 			iNav.push("home");
+			
+			autoUpdate();
+			
 		}
 	});
 }
@@ -107,7 +110,7 @@ function autoUpdate() {
 	//$(window).scroll(function() {
 	$(window).bind('scrollstop', function () {
 		
-		alert($(window).scrollTop()+','+$(document).height()+','+$(window).height());
+		//alert($(window).scrollTop()+','+$(document).height()+','+$(window).height());
 		
 		if ($(window).scrollTop() > 10) {
 			if ($(document).height() > $(window).height()) {
